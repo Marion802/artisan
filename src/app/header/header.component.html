@@ -1,0 +1,32 @@
+<nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/logo.png" alt="logo du site" width="250" height="140">
+      </a>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['']">Accueil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " [routerLink]="['']">Bâtiment</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['/product']">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['/about']">Fabrication</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " [routerLink]="['']">Alimentation</a>
+          </li>
+          <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline" type="submit">Rechercher</button>
+              </form>
+            </div>
+          </nav>
+      </ul>
+    </div>
+</nav>

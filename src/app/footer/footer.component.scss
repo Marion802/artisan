@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Graphik;
+    src: url(/fonts/graphiktext.oft) format('woff');
+}
+
+
+div {
+    font-family: Graphik;
+    background-color: #0074c7;
+    color: white;
+a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+    a:link, a:visited {
+        color: white;
+}
+}
+}

@@ -1,0 +1,28 @@
+@font-face {
+    font-family: Graphik;
+    src: url(/fonts/graphiktext.oft) format('woff');
+}
+
+
+nav {
+    font-family: Graphik;
+    background: #f1f8fc ;
+a {
+    color: #0074c7;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+  }
+}
+button {
+    background: #0074c7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background: #384050 ;
+    }
+}
