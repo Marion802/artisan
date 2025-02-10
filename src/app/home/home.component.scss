@@ -1,0 +1,43 @@
+@font-face {
+    font-family: Graphik;
+    src: url(/fonts/graphiktext.oft) format('woff');
+}
+
+@font-face {
+    font-family: GraphikT;
+    src: url(/fonts/graphiktitle.oft) format('woff');
+}
+
+.case {
+    font-family: Graphik;
+    background-color: #F1F8FC;
+    border: 1px solid ;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    position: relative;
+    transition: all 0.3s;
+    &:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.background {
+    background-color: #00497c;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+h2 {
+    font-family: GraphikT;
+    color: #0074c7 ;
+    font-size: 2em;
+    margin: 0;
+}
+
+h1 {
+    font-family: GraphikT;
+    color: #00497c;
+    font-size: 3em;
+    margin: 0;
+}

@@ -8,16 +8,16 @@
           <a class="nav-link " [routerLink]="['/home']">Accueil</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " [routerLink]="['']">Bâtiment</a>
+            <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Bâtiment'}">Bâtiment</a>
           </li>
         <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/product']">Services</a>
+          <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Services'} ">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/about']">Fabrication</a>
+          <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Fabrication'} ">Fabrication</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " [routerLink]="['']">Alimentation</a>
+            <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Alimentation'} ">Alimentation</a>
           </li>
           <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
