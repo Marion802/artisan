@@ -15,12 +15,17 @@ import { ArtisanService } from '../artisan.service';
 })
 export class HomeComponent implements OnInit {
   artisans: any[] = [];
+  artisansOfTheMonth: any[] = [];
 
   constructor(private artisanService: ArtisanService) { }
 
   ngOnInit(): void {
     this.artisanService.getArtisans().subscribe(data => {
       this.artisans = this.getRandomArtisans(data, 3);
+    });
+
+    this.artisanService.getArtisansOfTheMonth().subscribe(data => {
+      this.artisansOfTheMonth = data;
     });
   }
 

@@ -26,5 +26,20 @@
   </div>
 </div>
 
+<div class="container">
+  <h2 class="text-center m-5">Artisans du mois</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let artisan of artisansOfTheMonth">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ artisan.name }}</h5>
+          <p class="card-text">Note: {{ artisan.note }}</p>
+          <p class="card-text">Localisation: {{ artisan.location }}</p>
+          <p class="card-text">Spécialité: {{ artisan.specialty }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <app-footer></app-footer>
