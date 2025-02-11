@@ -1,5 +1,38 @@
-@font-face {
-    font-family: 'Graphik';
-    src: url(/public/fonts/graphiktext.otf) format('woff');
+.container {
+    margin-top: 20px;
+    background-color: #00497c;
+    border-radius: 5px;
+    margin-bottom: 200px;
+
+    h2 {
+        color: #0074c7 ;
+        font-size: 2em;
+        margin: 0;
+    }
+    
 }
+
+.card {
+    background-color: #F1F8FC;
+    color: #384050 ;
+    border: 1px solid ;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+
+.btn {
+    background-color: #0074c7;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    }
+   
+  }
 
