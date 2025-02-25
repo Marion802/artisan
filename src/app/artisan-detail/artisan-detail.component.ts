@@ -5,7 +5,6 @@ import { ArtisanService } from '../artisan.service';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Importer DomSanitizer
 
 @Component({
   selector: 'app-artisan-detail',
@@ -21,12 +20,10 @@ export class ArtisanDetailComponent implements OnInit {
     subject: '',
     message: ''
   };
-  sanitizedDescription: SafeHtml | undefined; // Variable pour stocker la description nettoyée
 
   constructor(
     private route: ActivatedRoute,
-    private artisanService: ArtisanService,
-    private sanitizer: DomSanitizer // Injecter DomSanitizer
+    private artisanService: ArtisanService
   ) { }
 
   // Méthode appelée lors de l'initialisation du composant
@@ -36,7 +33,6 @@ export class ArtisanDetailComponent implements OnInit {
       // Appel au service pour obtenir les détails de l'artisan par ID
       this.artisanService.getArtisanById(id).subscribe(data => {
         this.artisan = data; // Stocke les détails de l'artisan dans la variable artisan
-        this.sanitizedDescription = this.sanitizer.bypassSecurityTrustHtml(this.artisan.description); // Nettoyer la description
       });
     } else {
       // Gérer le cas où l'ID est null

@@ -7,7 +7,7 @@
       <p class="card-text">Note: {{ artisan.note }}</p>
       <p class="card-text">Spécialité: {{ artisan.specialty }}</p>
       <p class="card-text">Localisation: {{ artisan.location }}</p>
-      <p class="card-text">Description: <span [innerHTML]="sanitizedDescriptions[i]"></span></p>
+      <p class="card-text">Description: {{ artisan.description }}</p>
       <a [routerLink]="['/artisan', artisan.id]" class="btn btn-primary">Voir les détails</a>
     </div>
   </div>

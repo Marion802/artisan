@@ -1,32 +1,32 @@
 <nav class="navbar">
-    <div class="container">
-      <a class="navbar-brand" [routerLink]="['/home']">
-        <img src="/assets/logo.png" alt="logo du site" width="250" height="140">
-      </a>
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/home']">Accueil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Bâtiment'}">Batiment</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Services'} ">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Fabrication'} ">Fabrication</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Alimentation'} ">Alimentation</a>
-        </li>
-        <nav class="navbar bg-body-tertiary">
-          <div class="container-fluid">
-            <form class="d-flex" role="search" (ngSubmit)="onSearch(searchQuery)">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery">
-              <button class="btn btn-outline" type="submit">Rechercher</button>
-            </form>
-          </div>
-        </nav>
-      </ul>
-    </div>
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/home']">
+      <img src="/assets/logo.png" alt="logo du site" width="250" height="140">
+    </a>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home']">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/artisans']" [queryParams]="{ category: 'Bâtiment' }">Bâtiment</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/artisans']" [queryParams]="{ category: 'Services' }">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/artisans']" [queryParams]="{ category: 'Fabrication' }">Fabrication</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/artisans']" [queryParams]="{ category: 'Alimentation' }">Alimentation</a>
+      </li>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <form class="d-flex" role="search" (ngSubmit)="onSearch(searchQuery)">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery">
+            <button class="btn btn-outline" type="submit">Rechercher</button>
+          </form>
+        </div>
+      </nav>
+    </ul>
+  </div>
 </nav>

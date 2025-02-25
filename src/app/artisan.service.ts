@@ -13,21 +13,21 @@ export class ArtisanService {
   constructor(private http: HttpClient) { }
 
   // Méthode pour obtenir la liste des artisans
-  getArtisans(): Observable<any> {
-    return this.http.get<any>(this.dataUrl);
+  getArtisans(): Observable<any[]> {
+    return this.http.get<any[]>(this.dataUrl);
   }
 
   // Méthode pour obtenir un artisan par ID
   getArtisanById(id: string): Observable<any> {
     return this.getArtisans().pipe(
-      map(artisans => artisans.find((artisan: any) => artisan.id === id))
+      map((artisans: any[]) => artisans.find((artisan: any) => artisan.id === id))
     );
   }
 
   // Méthode pour obtenir les artisans du mois
   getArtisansOfTheMonth(): Observable<any[]> {
     return this.getArtisans().pipe(
-      map(artisans => {
+      map((artisans: any[]) => {
         const shuffled = artisans.sort(() => 0.5 - Math.random());
         return shuffled.slice(0, 3); // Sélectionne 3 artisans aléatoires
       })
@@ -44,13 +44,13 @@ export class ArtisanService {
     return this.http.post('/api/send-email', emailData);
   }
 
-    // Méthode pour rechercher des artisans
-    searchArtisans(query: string): Observable<any[]> {
-      return this.getArtisans().pipe(
-        map((artisans: any[]) => artisans.filter((artisan: any) =>
-          artisan.name.toLowerCase().includes(query.toLowerCase()) ||
-          artisan.description.toLowerCase().includes(query.toLowerCase())
-        ))
-      );
-    }
+  // Méthode pour rechercher des artisans
+  searchArtisans(query: string): Observable<any[]> {
+    return this.getArtisans().pipe(
+      map((artisans: any[]) => artisans.filter((artisan: any) =>
+        artisan.name.toLowerCase().includes(query.toLowerCase()) ||
+        artisan.description.toLowerCase().includes(query.toLowerCase())
+      ))
+    );
+  }
 }

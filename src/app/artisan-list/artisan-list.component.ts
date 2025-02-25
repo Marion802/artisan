@@ -4,7 +4,6 @@ import { ArtisanService } from '../artisan.service';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Importer DomSanitizer
 import { RouterLink, ActivatedRoute } from '@angular/router'; // Importer ActivatedRoute
 
 @Component({
@@ -17,11 +16,9 @@ import { RouterLink, ActivatedRoute } from '@angular/router'; // Importer Activa
 export class ArtisanListComponent implements OnInit {
   artisans: any[] = []; // Variable pour stocker la liste des artisans
   filteredArtisans: any[] = []; // Variable pour stocker la liste des artisans filtrés
-  sanitizedDescriptions: SafeHtml[] = []; // Variable pour stocker les descriptions nettoyées
 
   constructor(
     private artisanService: ArtisanService,
-    private sanitizer: DomSanitizer, // Injecter DomSanitizer
     private route: ActivatedRoute // Injecter ActivatedRoute
   ) { }
 
@@ -36,8 +33,6 @@ export class ArtisanListComponent implements OnInit {
         } else {
           this.filteredArtisans = this.artisans;
         }
-        this.sanitizedDescriptions = this.filteredArtisans.map(artisan => 
-          this.sanitizer.bypassSecurityTrustHtml(artisan.description)); // Nettoyer les descriptions
       });
     });
   }
