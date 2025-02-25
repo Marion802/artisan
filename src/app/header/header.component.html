@@ -9,7 +9,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Bâtiment'}">Batiment</a>
-          </li>
+        </li>
         <li class="nav-item">
           <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Services'} ">Services</a>
         </li>
@@ -18,15 +18,15 @@
         </li>
         <li class="nav-item">
             <a class="nav-link " [routerLink]="['/artisans']" [queryParams]="{ category : 'Alimentation'} ">Alimentation</a>
-          </li>
-          <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline" type="submit">Rechercher</button>
-              </form>
-            </div>
-          </nav>
+        </li>
+        <nav class="navbar bg-body-tertiary">
+          <div class="container-fluid">
+            <form class="d-flex" role="search" (ngSubmit)="onSearch(searchQuery)">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery">
+              <button class="btn btn-outline" type="submit">Rechercher</button>
+            </form>
+          </div>
+        </nav>
       </ul>
     </div>
 </nav>

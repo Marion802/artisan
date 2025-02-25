@@ -1,38 +1,39 @@
 <app-header></app-header>
 <div class="container" *ngIf="artisan">
-    <h2 class="text-center m-5">{{ artisan.name }}</h2>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Note: {{ artisan.note }}</h5>
-        <p class="card-text">Localisation: {{ artisan.location }}</p>
-        <p class="card-text">Spécialité: {{ artisan.specialty }}</p>
-        <p class="card-text">Description: {{ artisan.description }}</p>
-        <p class="card-text">A propos: {{ artisan.about }}</p>
-        <p class="card-text">email: {{ artisan.email }}</p>
-        <p class="card-text">Site web: {{ artisan.website }}</p>
+  <h2 class="text-center m-5">{{ artisan.name }}</h2>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Note: {{ artisan.note }}</h5>
+      <p class="card-text">Localisation: {{ artisan.location }}</p>
+      <p class="card-text">Spécialité: {{ artisan.specialty }}</p>
+      <p class="card-text">Description: {{ artisan.description }}</p>
+      <p class="card-text">A propos: {{ artisan.about }}</p>
+      <p class="card-text">Email: {{ artisan.email }}</p>
+      <p class="card-text" *ngIf="artisan.website">Site web: {{ artisan.website }}</p>
+    </div>
+  </div>
+
+  <!-- Formulaire de contact -->
+  <div *ngIf="!artisan.website">
+    <h3 class="text-center">Contactez l'artisan</h3>
+    <form (ngSubmit)="sendEmail()">
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="contactForm.name" name="name" required>
       </div>
-    </div>
+      <div class="form-group">
+        <label for="subject">Objet</label>
+        <input type="text" id="subject" class="form-control" [(ngModel)]="contactForm.subject" name="subject" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" class="form-control" [(ngModel)]="contactForm.message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
   </div>
-    <!-- Formulaire de contact -->
-    <div *ngIf="!artisan.website">
-      <h3>Contactez l'artisan</h3>
-      <form (ngSubmit)="sendEmail()">
-        <div class="form-group">
-          <label for="name">Nom</label>
-          <input type="text" id="name" class="form-control" [(ngModel)]="contactForm.name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="subject">Objet</label>
-          <input type="text" id="subject" class="form-control" [(ngModel)]="contactForm.subject" name="subject" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" class="form-control" [(ngModel)]="contactForm.message" name="message" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
-      </form>
-    </div>
-  <div *ngIf="!artisan">
-    <p>Chargement...</p>
-  </div>
-    <app-footer></app-footer>
+</div>
+<div *ngIf="!artisan">
+  <p>Chargement...</p>
+</div>
+<app-footer></app-footer>

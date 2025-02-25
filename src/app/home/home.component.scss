@@ -1,15 +1,5 @@
-@font-face {
-    font-family: Graphik;
-    src: url('/fonts/graphiktext.oft') format('woff');
-}
-
-@font-face {
-    font-family: GraphikT;
-    src: url('/fonts/graphiktitle.oft') format('woff');
-}
 
 .case {
-    font-family: Graphik;
     background-color: #F1F8FC;
     border: 1px solid ;
     border-radius: 5px;
@@ -30,16 +20,22 @@
 }
 
 h2 {
-    font-family: GraphikT;
+
     color: #0074c7 ;
-    font-size: 2em;
+    font-size: 3em;
     margin: 0;
 }
 
 h1 {
-    font-family: GraphikT;
+
     color: #00497c;
-    font-size: 3em;
+    font-size: 4em;
+    margin: 0;
+}
+h3 {
+
+    color: #0074c7 ;
+    font-size: 2em;
     margin: 0;
 }
 
@@ -60,12 +56,14 @@ h1 {
   }
   
   .card-title {
-    font-size: 1.25rem;
     margin-bottom: 10px;
   }
   
   .card-text {
-    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  p {
     margin-bottom: 10px;
   }
 

@@ -1,19 +1,15 @@
 <app-header></app-header>
-
 <div class="container">
-    <h2 class="text-center m-5">Artisans - {{ category }}</h2>
-    <div class="row">
-      <div class="col-md-4" *ngFor="let artisan of artisans">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h5 class="card-title">{{ artisan.name }}</h5>
-            <p class="card-text">Note: {{ artisan.note }}</p>
-            <p class="card-text">Localisation: {{ artisan.location }}</p>
-            <p class="card-text">Spécialité: {{ artisan.specialty }}</p>
-            <a [routerLink]="['/artisan', artisan.id]" class="btn ">Voir les détails</a>
-          </div>
-        </div>
-      </div>
+  <h2 class="text-center m-5">Liste des Artisans</h2>
+  <div *ngFor="let artisan of filteredArtisans; let i = index" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ artisan.name }}</h5>
+      <p class="card-text">Note: {{ artisan.note }}</p>
+      <p class="card-text">Spécialité: {{ artisan.specialty }}</p>
+      <p class="card-text">Localisation: {{ artisan.location }}</p>
+      <p class="card-text">Description: <span [innerHTML]="sanitizedDescriptions[i]"></span></p>
+      <a [routerLink]="['/artisan', artisan.id]" class="btn btn-primary">Voir les détails</a>
     </div>
   </div>
-    <app-footer></app-footer>
+</div>
+<app-footer></app-footer>

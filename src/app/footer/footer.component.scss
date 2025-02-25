@@ -1,13 +1,16 @@
-@font-face {
-    font-family: Graphik;
-    src: url(/fonts/graphiktext.oft) format('woff');
-}
+
 
 
 div {
-    font-family: Graphik;
     background-color: #0074c7;
     color: white;
+
+h3 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+}
+
 a {
     color: white;
     text-decoration: none;

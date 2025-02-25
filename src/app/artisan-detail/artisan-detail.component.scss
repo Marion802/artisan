@@ -1,8 +1,10 @@
+
+
 .container {
     margin-top: 20px;
     background-color: #00497c;
     border-radius: 5px;
-    h2 {
+    h2  {
         color: #0074c7 ;
         font-size: 2em;
         margin: 0;
@@ -16,6 +18,11 @@
     margin-bottom: 10px;
     padding: 10px;
    
+  }
+
+  .card-body {
+    color: #384050 ;
+    padding: 10px;
   }
 
   div {
@@ -32,7 +39,15 @@
 
     form {
         margin-top: 20px;
-      }
+        color: #384050 ;
+        background-color: #F1F8FC;
+    }
+
+    h3 {
+      color: #0074c7 ;
+      font-size: 1.5em;
+      margin: 0;
+    }
       
       .form-group {
         margin-bottom: 15px;

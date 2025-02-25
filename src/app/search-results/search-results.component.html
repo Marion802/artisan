@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Résultats de recherche pour "{{ searchQuery }}"</h2>
+    <div *ngIf="searchResults.length > 0; else noResults">
+      <div *ngFor="let artisan of searchResults" class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ artisan.name }}</h5>
+          <p class="card-text">{{ artisan.description }}</p>
+          <a [routerLink]="['/artisan', artisan.id]" class="btn btn-primary">Voir les détails</a>
+        </div>
+      </div>
+    </div>
+    <ng-template #noResults>
+      <p>Aucun résultat trouvé.</p>
+    </ng-template>
+  </div>
