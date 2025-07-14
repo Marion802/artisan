@@ -1,7 +1,9 @@
 <app-header></app-header>
-<div class="container" *ngIf="artisan">
-  <h2 class="text-center m-5">{{ artisan.name }}</h2>
-  <div class="card">
+<section class="container" *ngIf="artisan">
+  <header>
+    <h2 class="text-center m-5">{{ artisan.name }}</h2>
+  </header>
+  <article class="card">
     <div class="card-body">
       <h5 class="card-title">Note: {{ artisan.note }}</h5>
       <p class="card-text">Localisation: {{ artisan.location }}</p>
@@ -11,10 +13,10 @@
       <p class="card-text">Email: {{ artisan.email }}</p>
       <p class="card-text" *ngIf="artisan.website">Site web: {{ artisan.website }}</p>
     </div>
-  </div>
+  </article>
 
   <!-- Formulaire de contact -->
-  <div *ngIf="!artisan.website">
+  <section *ngIf="!artisan.website">
     <h3>Contactez l'artisan</h3>
     <form (ngSubmit)="sendEmail()">
       <div class="form-group">
@@ -31,9 +33,11 @@
       </div>
       <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
-  </div>
-</div>
-<div *ngIf="!artisan">
+  </section>
+</section>
+<section *ngIf="!artisan">
   <p>Chargement...</p>
-</div>
-<app-footer></app-footer>
+</section>
+<footer>
+  <app-footer></app-footer>
+</footer>

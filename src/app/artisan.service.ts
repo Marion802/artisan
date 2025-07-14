@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from './environment';
 import { map } from 'rxjs/operators';
+import emailjs from 'emailjs-com'; 
+import { environment } from './environment';
 
 @Injectable({
   providedIn: 'root'
@@ -34,23 +35,36 @@ export class ArtisanService {
     );
   }
 
-  // Méthode pour envoyer un email
-  sendEmail(contactForm: any): Observable<any> {
+  // Méthode pour envoyer un email via emailjs
+  sendEmail(contactForm: any): Promise<any> {
     const emailData = {
-      to: environment.contactEmail,
-      subject: contactForm.subject,
-      body: `Nom: ${contactForm.name}\n\nMessage: ${contactForm.message}`
+      from_name: contactForm.name, // Nom de l'expéditeur
+      subject: contactForm.subject, // Sujet de l'email
+      message: contactForm.message // Corps de l'email
     };
-    return this.http.post('/api/send-email', emailData);
-  }
 
-  // Méthode pour rechercher des artisans
-  searchArtisans(query: string): Observable<any[]> {
-    return this.getArtisans().pipe(
-      map((artisans: any[]) => artisans.filter((artisan: any) =>
-        artisan.name.toLowerCase().includes(query.toLowerCase()) ||
-        artisan.description.toLowerCase().includes(query.toLowerCase())
-      ))
+    // Utilisation de emailjs pour envoyer l'email
+    return emailjs.send(
+      environment.emailjs.serviceId, // Service ID depuis environment.ts
+      environment.emailjs.templateId, // Template ID depuis environment.ts
+      emailData,
+      environment.emailjs.userId // User ID depuis environment.ts
     );
   }
+
+
+  // Méthode pour rechercher des artisans
+ searchArtisans(query: string): Observable<any[]> {
+  return this.getArtisans().pipe(
+    map((artisans: any[]) => artisans.filter((artisan: any) => {
+      // Normalisation de la requête et des données pour supprimer les accents
+      const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const normalizedName = artisan.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const normalizedSpecialty = artisan.specialty.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+      // Comparaison normalisée
+      return normalizedName.includes(normalizedQuery) || normalizedSpecialty.includes(normalizedQuery);
+    }))
+  );
+}
 }

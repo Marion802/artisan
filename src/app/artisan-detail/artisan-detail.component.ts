@@ -42,16 +42,16 @@ export class ArtisanDetailComponent implements OnInit {
 
   // Méthode pour envoyer un email à l'artisan
   sendEmail(): void {
-    this.artisanService.sendEmail(this.contactForm).subscribe(response => {
-      console.log('Email envoyé avec succès', response);
+    this.artisanService.sendEmail(this.contactForm).then(() => {
+      console.log('Email envoyé avec succès via emailjs');
       // Réinitialiser les champs du formulaire après l'envoi
       this.contactForm = {
         name: '',
         subject: '',
         message: ''
       };
-    }, error => {
-      console.error('Erreur lors de l\'envoi de l\'email', error);
+    }).catch(error => {
+      console.error('Erreur lors de l\'envoi de l\'email via emailjs', error);
     });
   }
 }

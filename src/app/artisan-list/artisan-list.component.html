@@ -1,8 +1,10 @@
 <app-header></app-header>
-<div class="container">
-  <h2 class="text-center m-5">Liste des Artisans</h2>
+<section class="container">
+  <header>
+    <h2 class="text-center m-5">Liste des Artisans</h2>
+  </header>
   <div class="row">
-    <div *ngFor="let artisan of filteredArtisans; let i = index" class="col-12 col-md-6 col-lg-4 mb-3">
+    <article *ngFor="let artisan of filteredArtisans; let i = index" class="col-12 col-md-6 col-lg-4 mb-3">
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">{{ artisan.name }}</h5>
@@ -13,7 +15,7 @@
           <a [routerLink]="['/artisan', artisan.id]" class="btn btn-primary">Voir les détails</a>
         </div>
       </div>
-    </div>
+    </article>
   </div>
-</div>
+</section>
 <app-footer></app-footer>

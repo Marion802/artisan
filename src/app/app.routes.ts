@@ -7,10 +7,10 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path : 'home', component: HomeComponent},
+    { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirige uniquement les URL vides vers /home
+    { path: 'home', component: HomeComponent },
     { path: 'artisans', component: ArtisanListComponent },
     { path: 'artisan/:id', component: ArtisanDetailComponent },
-    { path: '**', component: NotFoundComponent }, // Route pour la page 404
-    { path: 'search', component: SearchResultsComponent }
+    { path: 'search', component: SearchResultsComponent },
+    { path: '**', component: NotFoundComponent } // Capture toutes les URL non définies
 ];
