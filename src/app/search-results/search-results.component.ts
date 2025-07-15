@@ -33,9 +33,11 @@ export class SearchResultsComponent implements OnInit {
   // Méthode pour effectuer la recherche d'artisans
   performSearch(): void {
     if (this.searchQuery) {
+      console.log('Requête reçue :', this.searchQuery); // <-- Log 1
+  
       this.artisanService.searchArtisans(this.searchQuery).subscribe(results => {
-        this.searchResults = results; // Stocke les résultats de la recherche
-        console.log('Résultats de recherche :', this.searchResults); // Log pour débogage
+        this.searchResults = results;
+        console.log('Résultats retournés :', this.searchResults); // <-- Log 2
       });
     }
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import emailjs from 'emailjs-com'; 
 import { environment } from './environment';
 
@@ -54,17 +54,24 @@ export class ArtisanService {
 
 
   // Méthode pour rechercher des artisans
- searchArtisans(query: string): Observable<any[]> {
-  return this.getArtisans().pipe(
-    map((artisans: any[]) => artisans.filter((artisan: any) => {
-      // Normalisation de la requête et des données pour supprimer les accents
-      const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-      const normalizedName = artisan.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-      const normalizedSpecialty = artisan.specialty.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
-      // Comparaison normalisée
-      return normalizedName.includes(normalizedQuery) || normalizedSpecialty.includes(normalizedQuery);
-    }))
-  );
-}
-}
+  searchArtisans(query: string): Observable<any[]> {
+    return this.getArtisans().pipe(
+      tap((artisans) => console.log('Tous les artisans récupérés :', artisans)),
+      map((artisans: any[]) => {
+        const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  
+        return artisans.filter((artisan: any) => {
+          const normalizedName = (artisan.name || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+          const normalizedSpecialty = (artisan.specialty || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+          const normalizedCategory = (artisan.category || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  
+          return (
+            normalizedName.includes(normalizedQuery) ||
+            normalizedSpecialty.includes(normalizedQuery) ||
+            normalizedCategory.includes(normalizedQuery)
+          );
+        });
+      })
+    );
+  }
+}  
